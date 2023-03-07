@@ -9,29 +9,29 @@ int main()
     char c = 'c'
     char s[] = "test";
  
-    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
-    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    printf("c : %c, valeur : %d \n", c, printf("%c", c));
+    ft_printf("c : %c, valeur : %d \n\n", c, ft_printf("%c", c));
     
     printf("str : %s, valeur : %d \n", s, printf("%s", s) );
-    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n\n", s, ft_printf("%s", s) );
     
     printf("str : %s, valeur : %d \n", s, printf("%s", s) );
-    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n\n", s, ft_printf("%s", s) );
     
     printf("str : %s, valeur : %d \n", s, printf("%s", s) );
-    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n\n", s, ft_printf("%s", s) );
     
     printf("str : %s, valeur : %d \n", s, printf("%s", s) );
-    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n\n", s, ft_printf("%s", s) );
     
     printf("str : %s, valeur : %d \n", s, printf("%s", s) );
-    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n\n", s, ft_printf("%s", s) );
     
     printf("str : %s, valeur : %d \n", s, printf("%s", s) );
-    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n\n", s, ft_printf("%s", s) );
     
     printf("str : %s, valeur : %d \n", s, printf("%s", s) );
-    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n\n", s, ft_printf("%s", s) );
 
 
 
