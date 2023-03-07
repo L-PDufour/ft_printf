@@ -6,14 +6,36 @@ int main()
     int resultat_printf;
     int resultat_ft_printf;
 
-    char st[] = "test";
+    char c = 'c'
+    char s[] = "test";
  
-    printf("str : %s, valeur : %d \n", st, printf("%s", st) );
-    ft_printf("str : %s, valeur : %d \n", st, ft_printf("%s", st) );
-    printf("str : %s, valeur : %d \n", st, printf("%s", st) );
-    ft_printf("str : %s, valeur : %d \n", st, ft_printf("%s", st) );
+    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    
+    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    
+    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    
+    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    
+    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    
+    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    
+    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
+    
+    printf("str : %s, valeur : %d \n", s, printf("%s", s) );
+    ft_printf("str : %s, valeur : %d \n", s, ft_printf("%s", s) );
 
-    // printf(", the value returned by printf() is : %d", printf("%s", st));
+
+
+    // printf(", the value returned by printf() is : %d", printf("%s", s));
 
 
 
