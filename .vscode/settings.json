@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "cstdio": "c",
-        "functional": "c",
-        "type_traits": "c"
-    }
-}
