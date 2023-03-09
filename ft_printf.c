@@ -6,18 +6,30 @@
 /*   By: ldufour <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:40:48 by ldufour           #+#    #+#             */
-/*   Updated: 2023/03/08 18:08:21 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:58:53 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-static void	ft_putstr(char *s)
+static void ft_putstr(char *s)
 {
 	int	i;
 
@@ -95,9 +107,10 @@ int	ft_printf(char *str, ...)
 		{
 			i++;
 			if (str[i] == 'c')
-				ft_putchar(j = va_arg(arg, int));
+				ft_putchar(va_arg(arg, int));
 			if (str[i] == 's')
 				ft_putstr(va_arg(arg, char *));
+				// j = j + ft_strlen((va_arg(arg, char *)));
 			if (str[i] == 'd' || str[i] == 'i')
 				ft_putstr(itoa(va_arg(arg, int), 10, 97));
 			if (str[i] == 'u')
@@ -106,13 +119,13 @@ int	ft_printf(char *str, ...)
 				ft_putstr(itoa(va_arg(arg, int), 16, 97));
 			if (str[i] == 'X')
 				ft_putstr(itoa(va_arg(arg, int), 16, 65));
-			if (str[i] == 'X')
-				ft_putstr(itoa(va_arg(arg, int), 16, 65));
+			if (str[i] == 'p')
+				ft_putstr(itoa(va_arg(arg, int), 16, 97));			
 		}
 		else
 			ft_putchar(str[i]);
 		i++;
-	}
+	}	
 	va_end(arg);
-	return (i);
+	return (j);
 }
