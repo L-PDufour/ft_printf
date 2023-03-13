@@ -26,5 +26,6 @@ int	ft_putnbr(int nb);
 int	ft_putnbrptr(unsigned long long int nbr, char *base);
 int	format(const char format, va_list arg);
 int	ft_printf(const char *str, ...);
+int	ft_putnbru(unsigned int nb);
 
 #endif

@@ -10,18 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 // #include "utils.c"
 
 int	ft_putnbrptr(unsigned long long int nbr, char *base)
 {
 	unsigned int	size;
 	int				lenght;
-
-	lenght = 0;
+  lenght = 0;
+  if (nbr == '\0')
+  { 
+    write (1 ,"(nil)", 5);
+    return (5);
+  }
 	size = strlen(base);
 	if (size < 2)
 		return (-1);
+  write(1, "0x", 2);
 	if (nbr >= size)
 		lenght = ft_putnbrptr(nbr / size, base);
 	write(1, &base[nbr % size], 1);
@@ -39,14 +44,21 @@ int	format(const char format, va_list arg)
 		lenght += ft_putstr(va_arg(arg, char *));
 	else if (format == 'd' || format == 'i')
 		lenght += ft_putnbr(va_arg(arg, int));
-	else if (format == 'x' || format == 'X')
+	else if (format == 'u')
+		lenght += ft_putnbru(va_arg(arg,unsigned int));
+  else if (format == 'x' || format == 'X')
 		lenght += ft_puthex(va_arg(arg, int), format);
-	if (format == 'p')
+  else if (format == 'p')
 	{
-		write(1, "0x", 2);
+    write(1, "0x", 2);
 		lenght += 2 + ft_putnbrptr(va_arg(arg, unsigned long long),
 				"0123456789abcdef");
 	}
+  else if (format == '%' )
+  {
+    lenght = 1;
+    write (1, "%", 1);
+  }
 	return (lenght);
 }
 
@@ -61,7 +73,12 @@ int	ft_printf(const char *str, ...)
 	va_start(arg, str);
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str == NULL)
+      {
+    ft_putstr("(null)");
+    return (6);
+      }
+   if (str[i] == '%')
 		{
 			lenght += format(str[i + 1], arg);
 			i++;
