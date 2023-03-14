@@ -6,7 +6,7 @@
 /*   By: ldufour <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:40:48 by ldufour           #+#    #+#             */
-/*   Updated: 2023/03/14 10:44:02 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/03/14 15:09:07 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ int	format(const char format, va_list arg)
 	else if (format == '%')
 	{
 		lenght = 1;
-		write(1, "%", 1);
+		ft_putchar('%');
 	}
+	else if (lenght < 0)
+		return (-1);
 	return (lenght);
 }
 
@@ -51,11 +53,8 @@ int	ft_printf(const char *str, ...)
 	va_start(arg, str);
 	while (str[i] != '\0')
 	{
-		if (str == NULL)
-		{
-			ft_putstr("(null)");
-			return (6);
-		}
+		if (lenght < 0)
+			return (-1);
 		if (str[i] == '%')
 		{
 			lenght += format(str[i + 1], arg);
@@ -68,3 +67,4 @@ int	ft_printf(const char *str, ...)
 	va_end(arg);
 	return (lenght);
 }
+

@@ -6,7 +6,7 @@
 /*   By: ldufour <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 08:23:48 by ldufour           #+#    #+#             */
-/*   Updated: 2023/03/14 11:24:33 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/03/14 15:36:56 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	declenght(int n)
 		len++;
 		x /= 10;
 	}
-	ft_putnbr(n);
+	if (&ft_putnbr(n) == 0)
+		return ;
 	return (len);
 }
 
@@ -40,7 +41,8 @@ void	ft_putnbr(int nb)
 	x = nb;
 	if (x < 0)
 	{
-		ft_putchar('-');
+		if (ft_putchar('-') == -1)
+			return ;
 		x *= -1;
 	}
 	if (x >= 10)
@@ -49,7 +51,8 @@ void	ft_putnbr(int nb)
 		x = x % 10;
 	}
 	if (x <= 10)
-		ft_putchar(x + 48);
+		if (ft_putchar(x + 48) == -1)
+			return ;
 }
 
 void	ft_putnbru(unsigned int nb)
