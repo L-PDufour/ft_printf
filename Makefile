@@ -7,7 +7,9 @@ CFLAGS =  -Wall -Wextra -Werror
 .PHONY: all clean fclean re bonus
 
 SRC = ft_printf.c\
-	utils.c\
+	printchar.c\
+	printdec.c\
+	printhex.c\
 
 OBJ = $(SRC:.c=.o)
 

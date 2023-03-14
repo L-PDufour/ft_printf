@@ -6,32 +6,11 @@
 /*   By: ldufour <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:40:48 by ldufour           #+#    #+#             */
-/*   Updated: 2023/03/10 20:39:28 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/03/14 10:44:02 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// #include "utils.c"
-
-int	ft_putnbrptr(unsigned long long int nbr, char *base)
-{
-	unsigned int	size;
-	int				lenght;
-  lenght = 0;
-  if (nbr == '\0')
-  { 
-    write (1 ,"(nil)", 5);
-    return (5);
-  }
-	size = strlen(base);
-	if (size < 2)
-		return (-1);
-  write(1, "0x", 2);
-	if (nbr >= size)
-		lenght = ft_putnbrptr(nbr / size, base);
-	write(1, &base[nbr % size], 1);
-	return (lenght + 1);
-}
 
 int	format(const char format, va_list arg)
 {
@@ -43,22 +22,21 @@ int	format(const char format, va_list arg)
 	else if (format == 's')
 		lenght += ft_putstr(va_arg(arg, char *));
 	else if (format == 'd' || format == 'i')
-		lenght += ft_putnbr(va_arg(arg, int));
+		lenght += declenght(va_arg(arg, int));
 	else if (format == 'u')
-		lenght += ft_putnbru(va_arg(arg,unsigned int));
-  else if (format == 'x' || format == 'X')
+		lenght += declenght_u(va_arg(arg, unsigned int));
+	else if (format == 'x' || format == 'X')
 		lenght += ft_puthex(va_arg(arg, int), format);
-  else if (format == 'p')
+	else if (format == 'p')
 	{
-    write(1, "0x", 2);
-		lenght += 2 + ft_putnbrptr(va_arg(arg, unsigned long long),
-				"0123456789abcdef");
+		write(1, "0x", 2);
+		lenght += 2 + ft_putnbrptr(va_arg(arg, unsigned long long));
 	}
-  else if (format == '%' )
-  {
-    lenght = 1;
-    write (1, "%", 1);
-  }
+	else if (format == '%')
+	{
+		lenght = 1;
+		write(1, "%", 1);
+	}
 	return (lenght);
 }
 
@@ -71,14 +49,14 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	lenght = 0;
 	va_start(arg, str);
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		if (str == NULL)
-      {
-    ft_putstr("(null)");
-    return (6);
-      }
-   if (str[i] == '%')
+		{
+			ft_putstr("(null)");
+			return (6);
+		}
+		if (str[i] == '%')
 		{
 			lenght += format(str[i + 1], arg);
 			i++;

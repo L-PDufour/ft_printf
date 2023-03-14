@@ -1,19 +1,20 @@
  #include <stdio.h>
  #include "ft_printf.h"
  #include "ft_printf.c"
- #include "utils.c"
+ #include "printchar.c"
+ #include "printdec.c"
+ #include "printhex.c"
 
  int main()
  {
-     char c = 'd';
-     int i = -2000000;
-     int *p = &i;
-     unsigned int u = -94967295;
-     int result = 0;
+    int result;
+    int results;
 
-     char s[] = "test";
-   printf(" %p \n", -1);
-   ft_printf(" %p  \n", -1);
+    result = printf("%%%%%%");
+    printf("%d\n", result);
+    results = ft_printf("%%%%%%");
+    ft_printf("%d\n", results);
+
 /*
    ft_printf("%5%");
    printf("%d\n", result);
