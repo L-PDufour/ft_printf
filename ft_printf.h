@@ -6,7 +6,7 @@
 /*   By: ldufour <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:43:45 by ldufour           #+#    #+#             */
-/*   Updated: 2023/03/14 15:07:17 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/03/15 13:45:32 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
-# include <limits.h>
 
-int		ft_putchar(char c);
-int		ft_putstr(char *str);
-int		declenght(int n);
-int		declenght_u(unsigned int n);
-int		ft_puthex(long int nb, const char format);
-void	ft_putnbr(int nb);
-int		ft_putnbrptr(unsigned long long int nbr);
-int		format(const char format, va_list arg);
+void	ft_putchar(const char c, int *lenght);
+void	ft_putstr(const char *str, int *lenght);
+void	ft_puthex(long int nb, const char format, int *lenght);
+void	ft_putnbr(int nb, int *lenght);
+void	ft_putnbrptr(unsigned long long int nbr, int *lenght);
+void	formatter(const char format, va_list arg, int *lenght);
 int		ft_printf(const char *str, ...);
-void	ft_putnbru(unsigned int nb);
+void	ft_putnbru(unsigned int nb, int *lenght);
 
 #endif

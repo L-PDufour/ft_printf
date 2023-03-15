@@ -6,34 +6,34 @@
 /*   By: ldufour <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:21:09 by ldufour           #+#    #+#             */
-/*   Updated: 2023/03/14 15:29:49 by ldufour          ###   ########.fr       */
+/*   Updated: 2023/03/15 13:34:40 by ldufour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+void	ft_putchar(const char c, int *lenght)
 {
+	if (*lenght == -1)
+		return ;
 	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (1);
+		*lenght = -1;
+	else if (*lenght >= 0)
+		*lenght += 1;
 }
 
-int	ft_putstr(char *str)
+void	ft_putstr(const char *str, int *lenght)
 {
-	int	i;
-
+	if (*lenght == -1)
+		return ;
 	if (!str)
 	{
-		ft_putstr("(null)");
-		return (6);
+		ft_putstr("(null)", lenght);
+		return ;
 	}
-	i = 0;
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		if (ft_putchar(str[i]) == -1)
-			return (-1);
-		i++;
+		ft_putchar(*str, lenght);
+		str++;
 	}
-	return (i);
 }
