@@ -9,7 +9,6 @@ CFLAGS =  -Wall -Wextra -Werror
 SRC = ft_printf.c\
 	printchar.c\
 	printdec.c\
-	printhex.c\
 
 OBJ = $(SRC:.c=.o)
 
