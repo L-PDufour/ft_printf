@@ -2,7 +2,9 @@ NAME = libftprintf.a
 
 RM = rm -f
 
-CFLAGS =  -Wall -Wextra -Werror 
+CC = gcc
+
+CFLAGS =  -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re bonus
 
@@ -21,7 +23,7 @@ clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
-	@$(RM) $(NAME) 
+	@$(RM) $(NAME)
 
 
 re: fclean all
